@@ -5,7 +5,7 @@ REQUESTS
 # For joining
 test = {
     "lobby_id": "test123",
-    "player_id": "player123"
+    "player_id": 123
 }
 
 # For leaving
