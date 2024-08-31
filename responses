@@ -1,0 +1,151 @@
+"""
+RESPONSES
+"""
+
+# When joining
+test = {
+    "type": "welcome",
+    "players": ["player123", "player234", "player345"],
+    "info": {
+        "player_amount": 3,
+        "bid": 1.0,
+        "game_type": 0
+    },
+    "available_state": "ready"
+}
+
+# When someone joins
+test = {
+    "type": "new_player",
+    "players": ["player123", "player234", "player345"],
+    "available_state": "ready"
+}
+
+# When someone leaves
+test = {
+    "type": "leave",
+    "players": ["player123", "player234"],
+    "available_state": "ready"
+}
+
+# Whenever someone's state changes. Ready, bat, pass, take.
+test = {
+    "type": "players_states",
+    "players": ["player123", "player234", "player345"],
+    "states": ["ready", "wait", "ready"],
+    "available_state": "take",
+    "timers": [["player234", 1724967319]]
+}
+
+# When the game starts
+test = {
+    "type": "start_game",
+    "players": ["player123", "player234", "player345"],
+    "states": ["attack", "defend", "wait"],
+    "available_state": "take",
+    "card_amounts": [6, 6, 6],
+    "deck_cards": 18,
+    "hand": ["6S", "7D", "12C", "13C", "10H", "14H"],
+    "available_hand": ["6S", "7D", "12C"],
+    "timers": [["player123", 1724967318]],
+    "trump_card": "6H"
+}
+
+# When someone makes a move
+test = {
+    "type": "table",
+    "table": [[["player123", "10C"], ["player234", "12C"]], [["player123", "7H"]]],
+    "players": ["player123", "player234", "player345"],
+    "states": ["attack", "defend", "wait"],
+    "available_state": "take",
+    "card_amounts": [4, 4, 6],
+    "deck_cards": 18,
+    "hand": ["6S", "7D", "13C", "10H", "14H"],
+    "available_hand": ["6S", "7D", "12C"],
+    "timers": [["player234", 1724967319]]
+}
+
+# When someone takes
+test = {
+    "type": "take",
+    "table": [],
+    "players": ["player123", "player234", "player345"],
+    "states": ["pass", "take", "pass"],
+    "available_state": "take",
+    "card_amounts": [6, 8, 6],
+    "deck_cards": 16,
+    "hand": ["6S", "7D", "10C", "12C", "13C", "7H", "10H", "14H"],
+    "available_hand": ["6S", "7D", "13C"],
+    "timers": []
+}
+
+# When the round ends
+test = {
+    "type": "end_round",
+    "table": [],
+    "players": ["player123", "player234", "player345"],
+    "states": ["bat", "defend", "bat"],
+    "card_amounts": [4, 4, 6],
+    "deck_cards": 16,
+    "hand": ["6S", "7D", "13C", "14H"],
+    "timers": []
+}
+
+# New round starts
+test = {
+    "type": "new_round",
+    "table": [],
+    "players": ["player123", "player234", "player345"],
+    "states": ["wait", "attack", "defend"],
+    "available_state": "take",
+    "card_amounts": [6, 6, 6],
+    "deck_cards": 16,
+    "hand": ["6S", "8S", "7D", "8D", "13C", "14H"],
+    "available_hand": ["6S", "7D", "13C"],
+    "timers": [["player234", 1724967319]]
+}
+
+# When the game ends. 3 reasons: natural, timer and leave
+test = {
+    "type": "end_game",
+    "currency": "TON",
+    "amount": 1.2,
+    "reason": "timer",
+    "players": ["player123", "player234", "player345"],
+    "states": ["wait", "wait", "wait"],
+    "timers": [["player123", 1724967319], ["player234", 1724967319], ["player345", 1724967319]]
+}
+
+# When you reconnect.
+test = {
+    "type": "reconnection",
+    "info": {
+        "player_amount": 3,
+        "bid": 1.0,
+        "game_type": 0
+    },
+    "table": [],
+    "players": ["player123", "player234", "player345"],
+    "states": ["wait", "attack", "defend"],
+    "available_state": "wait",
+    "card_amounts": [6, 6, 6],
+    "deck_cards": 16,
+    "hand": ["6S", "8S", "7D", "8D", "13C", "14H"],
+    "available_hand": ["6S", "7D", "13C"],
+    "timers": [["player234", 1724967319]],
+    "trump_card": "6H"
+}
+
+# Reconnection before start
+test = {
+    "type": "reconnection_welcome",
+    "info": {
+        "player_amount": 3,
+        "bid": 1.0,
+        "game_type": 0
+    },
+    "players": ["player123", "player234", "player345"],
+    "states": ["wait", "ready", "wait"],
+    "available_state": "wait",
+    "timers": [["player234", 1724967319]],
+}
