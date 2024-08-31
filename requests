@@ -1,0 +1,37 @@
+"""
+REQUESTS
+"""
+
+# For joining
+test = {
+    "lobby_id": "test123",
+    "player_id": "player123"
+}
+
+# For leaving
+test = {
+    "lobby_id": "test123",
+    "type": "leave"
+}
+
+# For changing state
+test = {
+    "lobby_id": "test123",
+    "type": "state",
+    "state": "ready"
+}
+states = ["ready", "take", "pass", "bat"]
+
+# For making an attack
+test = {
+    "lobby_id": "test123",
+    "type": "attack",
+    "card": "6H"
+}
+
+# For defending
+test = {
+    "lobby_id": "test123",
+    "type": "defend",
+    "cards": ["6H", "10H"]
+}
