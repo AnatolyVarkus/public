@@ -25,7 +25,7 @@ test = {
 test = {
     "type": "leave",
     "players": ["player123", "player234"],
-    "available_state": "ready"
+    "available_state": ""
 }
 
 # Whenever someone's state changes. Ready, bat, pass, take.
@@ -68,24 +68,36 @@ test = {
 
 # When someone takes
 test = {
-    "type": "take",
+    "type": "end_round",
+    "how": "take or bat"
     "table": [],
-    "players": ["player123", "player234", "player345"],
-    "states": ["pass", "take", "pass"],
-    "available_state": "take",
+    "taker_id": 123
+    "hand": ["6S", "7D", "10C", "12C", "13C", "7H", "10H", "14H"],
     "card_amounts": [6, 8, 6],
     "deck_cards": 16,
-    "hand": ["6S", "7D", "10C", "12C", "13C", "7H", "10H", "14H"],
-    "available_hand": ["6S", "7D", "13C"],
-    "timers": []
 }
 
-# When the game ends. 3 reasons: natural, timer and leave
+
 test = {
     "type": "end_game",
     "players": ["player123", "player234", "player345"],
     "order": [(1, 111), (2, 222), (3, 333)]
 }
+
+# 3 reasons: natural, timer and leave
+test = {
+            "type": "winner",
+            "currency": "DURAK",
+            "amount": body["amount"],
+            "reason": reason,
+        })
+
+test = {
+            "type": "durak",
+            "currency": "DURAK",
+            "amount": body["amount"],
+            "reason": reason,
+        })
 
 # When you reconnect.
 test = {
@@ -123,16 +135,4 @@ test = {
     "timers": [["player234", 1724967319]],
 }
 
-test = {
-            "type": "durak",
-            "currency": "DURAK",
-            "amount": body["amount"],
-            "reason": reason,
-        })
 
-test = {
-            "type": "winner",
-            "currency": "DURAK",
-            "amount": body["amount"],
-            "reason": reason,
-        })
