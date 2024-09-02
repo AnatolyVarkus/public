@@ -10,13 +10,11 @@ test = {
 
 # For leaving
 test = {
-    "lobby_id": "test123",
     "type": "leave"
 }
 
 # For changing state
 test = {
-    "lobby_id": "test123",
     "type": "state",
     "state": "ready"
 }
@@ -24,14 +22,12 @@ states = ["ready", "take", "pass", "bat"]
 
 # For making an attack
 test = {
-    "lobby_id": "test123",
     "type": "attack",
     "card": "6H"
 }
 
 # For defending
 test = {
-    "lobby_id": "test123",
     "type": "defend",
     "cards": [[123123, "6H"], [321321, "10H"]]
 }
