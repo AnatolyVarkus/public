@@ -34,6 +34,7 @@ test = {
     "players": ["player123", "player234", "player345"],
     "states": ["ready", "wait", "ready"],
     "available_state": "take",
+    "available_hand": [],
     "timers": [["player234", 1724967319]]
 }
 
@@ -79,41 +80,11 @@ test = {
     "timers": []
 }
 
-# When the round ends
-test = {
-    "type": "end_round",
-    "table": [],
-    "players": ["player123", "player234", "player345"],
-    "states": ["bat", "defend", "bat"],
-    "card_amounts": [4, 4, 6],
-    "deck_cards": 16,
-    "hand": ["6S", "7D", "13C", "14H"],
-    "timers": []
-}
-
-# New round starts
-test = {
-    "type": "new_round",
-    "table": [],
-    "players": ["player123", "player234", "player345"],
-    "states": ["wait", "attack", "defend"],
-    "available_state": "take",
-    "card_amounts": [6, 6, 6],
-    "deck_cards": 16,
-    "hand": ["6S", "8S", "7D", "8D", "13C", "14H"],
-    "available_hand": ["6S", "7D", "13C"],
-    "timers": [["player234", 1724967319]]
-}
-
 # When the game ends. 3 reasons: natural, timer and leave
 test = {
     "type": "end_game",
-    "currency": "TON",
-    "amount": 1.2,
-    "reason": "timer",
     "players": ["player123", "player234", "player345"],
-    "states": ["wait", "wait", "wait"],
-    "timers": [["player123", 1724967319], ["player234", 1724967319], ["player345", 1724967319]]
+    "order": [(1, 111), (2, 222), (3, 333)]
 }
 
 # When you reconnect.
@@ -136,6 +107,8 @@ test = {
     "trump_card": "6H"
 }
 
+
+
 # Reconnection before start
 test = {
     "type": "reconnection_welcome",
@@ -149,3 +122,17 @@ test = {
     "available_state": "wait",
     "timers": [["player234", 1724967319]],
 }
+
+test = {
+            "type": "durak",
+            "currency": "DURAK",
+            "amount": body["amount"],
+            "reason": reason,
+        })
+
+test = {
+            "type": "winner",
+            "currency": "DURAK",
+            "amount": body["amount"],
+            "reason": reason,
+        })
